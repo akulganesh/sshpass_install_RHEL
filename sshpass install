@@ -1,0 +1,111 @@
+INSTALLING SSHPASS SOFTWARE PACKAGE IN RHEL.
+
+Prerequisite
+Require sudo permission to install the sshpass package.
+Command:  sudo sshpass -V  # this command is gives the information about current installed sshpass version if package is not installed then it throw the command has not found.
+
+Installing sshpass software package using EPEL (Extra Packages for Enterprise Linux) is open source and free community based repository project.
+
+Check is linux mechine having EPEL repository or not ?.
+
+yum repolist ## it will show present repolist in linux os .. if package not installed install epel package first.
+Following steps leads to install EPEL REPO.
+Commands:
+wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -ivh epel-release-latest-7.noarch.rpm
+
+###############################################################################################################################
+[root@ip-172-31-21-168 ec2-user]#  wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+--2019-01-04 08:11:15--  http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+Resolving dl.fedoraproject.org (dl.fedoraproject.org)... 209.132.181.23, 209.132.181.24
+Connecting to dl.fedoraproject.org (dl.fedoraproject.org)|209.132.181.23|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15080 (15K) [application/x-rpm]
+Saving to: ‘epel-release-latest-7.noarch.rpm.1’
+
+100%[====================================================================================================================>] 15,080      --.-K/s   in 0.06s   
+
+2019-01-04 08:11:16 (246 KB/s) - ‘epel-release-latest-7.noarch.rpm.1’ saved [15080/15080]
+
+[root@ip-172-31-21-168 ec2-user]# ls
+epel-release-latest-7.noarch.rpm
+[root@ip-172-31-21-168 ec2-user]# rpm -ivh epel-release-latest-7.noarch.rpm
+Preparing...                          ################################# [100%]
+	package epel-release-7-11.noarch is already installed
+#############################################################################################################################
+type following command:yum repolist
+#############################################################################################################################
+[root@ip-172-31-21-168 ec2-user]# yum repolist 
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+156 packages excluded due to repository priority protections
+repo id                                                        repo name                                                                            status
+!amzn2-core/2/x86_64                                           Amazon Linux 2 core repository                                                           15,809
+amzn2extra-epel/2/x86_64                                       Amazon Extras repo for epel                                                                   1
+epel/x86_64                                                    Extra Packages for Enterprise Linux 7 - x86_64                                       12,687+156
+repolist: 28,497
+#############################################################################################################################
+
+SSHPASSHPASS INSTALL USING YUM PACKAGE-MANAGER
+Command: yum install sshpass
+
+#############################################################################################################################
+[root@ip-172-31-21-168 ec2-user]# yum install sshpass
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+156 packages excluded due to repository priority protections
+Resolving Dependencies
+--> Running transaction check
+---> Package sshpass.x86_64 0:1.06-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+==============================================================================================================================================================
+ Package                               Arch                                 Version                                  Repository                          Size
+==============================================================================================================================================================
+Installing:
+ sshpass                               x86_64                               1.06-1.el7                               epel                                21 k
+
+Transaction Summary
+==============================================================================================================================================================
+Install  1 Package
+
+Total download size: 21 k
+Installed size: 38 k
+Is this ok [y/d/N]: y
+Downloading packages:
+warning: /var/cache/yum/x86_64/2/epel/packages/sshpass-1.06-1.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Public key for sshpass-1.06-1.el7.x86_64.rpm is not installed
+sshpass-1.06-1.el7.x86_64.rpm                                                                                                          |  21 kB  00:00:00     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-11.noarch (@amzn2extra-epel)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Is this ok [y/N]: y
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : sshpass-1.06-1.el7.x86_64                                                                                                                  1/1 
+  Verifying  : sshpass-1.06-1.el7.x86_64                                                                                                                  1/1 
+
+Installed:
+  sshpass.x86_64 0:1.06-1.el7                                                                                                                                 
+
+Complete!
+#############################################################################################################################
+
+SSHPASS -VERSION CHECK
+Command: sshpass -V
+
+#############################################################################################################################
+[root@ip-172-31-21-168 ec2-user]# sshpass -V
+sshpass 1.06
+(C) 2006-2011 Lingnu Open Source Consulting Ltd.
+(C) 2015-2016 Shachar Shemesh
+This program is free software, and can be distributed under the terms of the GPL
+See the COPYING file for more information.
+
+Using "assword" as the default password prompt indicator.
+##############################################################################################################################
