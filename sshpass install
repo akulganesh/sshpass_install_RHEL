@@ -1,7 +1,8 @@
-INSTALLING SSHPASS SOFTWARE PACKAGE IN RHEL.
+INSTALLING SSHPASS SOFTWARE PACKAGE IN RHEL and Oracle linux.
 
 Prerequisite
-Require sudo permission to install the sshpass package.
+Require "sudo" permission to install the sshpass package.
+"wget" software package
 Command:  sudo sshpass -V  # this command is gives the information about current installed sshpass version if package is not installed then it throw the command has not found.
 
 Installing sshpass software package using EPEL (Extra Packages for Enterprise Linux) is open source and free community based repository project.
